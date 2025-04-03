@@ -7,5 +7,5 @@ const SECRET =  'secret';
 const token = twofactor.generateToken(SECRET);
 
 ncp.copy(`${PASSWORD}${token.token}`, () => {
-  console.log(`Password in clipboard, expires in ${(new Date()).getSeconds() % 30} seconds`);
+  console.log(`Password in clipboard, expires in ${30 - (new Date()).getSeconds() % 30} seconds`);
 });
